@@ -3,7 +3,6 @@ from requests import *
 from models import Avatar
 import json
 
-
 class AvatarService:
     @staticmethod
     def getAll():
@@ -20,8 +19,6 @@ class AvatarService:
 
     @staticmethod
     def getById(id):
-        avatars = []
-
         response = get(url=Config.url+"/avatar/"+str(id))
         data = response.json()
 
