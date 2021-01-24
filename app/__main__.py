@@ -1,15 +1,11 @@
 from models import *
 from service import *
+from controller import *
 import time
 import asyncio
 
 async def start():
-    corona = await AvatarService.getById(1)
-
-    corona.x = 1
-    corona.y = 1
-
-    await AvatarService.moveAvatars([corona])
+    await init_start_position()
 
 
 # Démarre la boucle principale
