@@ -1,14 +1,15 @@
-import requests
-import json
 from models import *
 from service import *
+from controller import *
+import time
+import asyncio
 
-print(AvatarService.getAll())
-print(AvatarService.getById(1))
-print(AvatarService.getByTypeId(2))
+async def start():
+    await init_start_position()
 
 # map = []
 
+<<<<<<< HEAD
 # for i in range(len(data['square'])):
 #     line = []
 #     for j in range(len(data['square'][i])):
@@ -73,3 +74,9 @@ for x in range(len(map.squares)):
 print(MapService.getById(1).squares[0][0].image)
 
 print()
+=======
+# Démarre la boucle principale
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+loop.run_until_complete(start())
+>>>>>>> master
