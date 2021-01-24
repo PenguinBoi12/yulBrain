@@ -9,6 +9,7 @@ class Avatar:
         self._x = x
         self._y = y
 
+
     @property
     def id(self):
         return self._id
