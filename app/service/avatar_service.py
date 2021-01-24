@@ -51,3 +51,14 @@ class AvatarService:
 
         response = post(url=Config.url+"/avatar/move-avatars/", json=json_avatars,  headers=Config.headers)
         return response.status_code == 200
+
+    @staticmethod
+    async def add_and_moove_avatars(new_avatars):
+        avatars = await AvatarService.get_all()
+        json_avatars = []
+
+        for avatar in avatars + new_avatars:
+            json_avatars.append(avatar.to_json())
+
+        response = post(url=Config.url+"/avatar/move-avatars/", json=json_avatars,  headers=Config.headers)
+        return response.status_code == 200

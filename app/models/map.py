@@ -32,6 +32,10 @@ class Map:
         self._squares = squares
 
 
+    def square_value(self, line, column):
+        return self._squares[line][column].value
+
+
     @staticmethod
     def parse(json_object):
         squares = []

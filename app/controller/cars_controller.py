@@ -55,6 +55,28 @@ class CarsController:
 
         if len(directions) > 0:
             car.direction = choice(directions)
+        # map = await MapService.getById(1)
+
+        # for car in self.cars:
+        #     if car.direction == "down" and car.y+1 < 29:
+        #         car.y += 1
+        #         next_square = map.squares[car.y+1][car.x]
+        #     elif car.direction == "up":
+        #         car.y -= 1
+        #         next_square = map.squares[car.y-1][car.x]
+        #     elif car.direction == "right":
+        #         car.x += 1
+        #         next_square = map.squares[car.y][car.x+1]
+        #     elif car.direction == "left":
+        #         car.x -= 1
+        #         next_square = map.squares[car.y][car.x-1]
+
+        #     if next_square.type == "croisement":
+        #         print(f"{next_square.type}")
+
+        # print(f"({car.x},{car.y})")
+        # await AvatarService.move_avatars(self.cars)
+        pass
 
 
     def limit_exceeded(self):

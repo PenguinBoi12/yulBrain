@@ -11,6 +11,7 @@ class MapController:
 
     async def start(self):
         self.map = await MapService.getById(1)
+        await TypeService.create(Type(-1, "feux"))
         await self.setTrafficLight()
 
     async def setTrafficLight(self):
