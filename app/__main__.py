@@ -8,7 +8,7 @@ course = [(9,9), (3,21), (16,14), (13,18)]
 
 corona = CoronaController(course)
 map = MapController()
-cars = CarsController(1)
+cars = CarsController(5)
 
 async def start():
     await map.start()
@@ -25,7 +25,7 @@ async def start():
         avatars += await cars.roam()
         await sleep(0.5)
 
-        if time.time() - start > 30:
+        if time.time() - start > 5:
             avatars += await map.changeTrafficLight()
 
         if time.time() - start > 1 and not cars.limit_exceeded():

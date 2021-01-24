@@ -13,7 +13,7 @@ class CarsController:
 
 
     async def new(self):
-        new_car = Avatar(-1, "voiture", 5,  "../assets/images/car.png", 1, 0, 1, 9)
+        new_car = Avatar(-1, "voiture", 5,  "../assets/images/car.png", 1, 0, 11, 13)
         self.cars.append(new_car)
 
 
