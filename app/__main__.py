@@ -4,7 +4,7 @@ from controller import *
 from asyncio import *
 
 async def start():
-    await init_start_position()
+    await CoronaController().start()
 
 
 # Démarre la boucle principale

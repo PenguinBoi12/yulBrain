@@ -1,1 +1,1 @@
-from .corona import *
+from .corona_controller import *
