@@ -36,3 +36,14 @@ class AvatarService:
             avatars.append(Avatar.parse(d))
 
         return avatars
+
+
+    @staticmethod
+    def moveAvatars(avatars):
+        json_avatars = []
+
+        for avatar in avatars:
+            json_avatars.append(avatar.to_json())
+
+        response = post(url=Config.url+"/avatar/move-avatars/", json=json_avatars,  headers=Config.headers)
+        return response.status_code == 200
