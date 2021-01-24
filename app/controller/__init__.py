@@ -1,1 +1,2 @@
 from .corona_controller import *
+from .map_controler import *

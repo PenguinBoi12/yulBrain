@@ -7,7 +7,7 @@ course = [(9,9), (3,21), (16,14), (13,18)]
 
 async def start():
     await CoronaController(course).start()
-
+    await MapController().start()
 
 # Démarre la boucle principale
 try:

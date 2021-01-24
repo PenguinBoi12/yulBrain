@@ -37,6 +37,10 @@ class AvatarService:
 
         return avatars
 
+    @staticmethod
+    async def create(avatar):
+        response = post(url=Config.url+"/avatar/", json = avatar.to_json(),  headers=Config.headers)
+        return response.status_code == 200
 
     @staticmethod
     async def move_avatars(avatars):
