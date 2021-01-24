@@ -1,7 +1,6 @@
 from models import *
 from service import *
 from asyncio import sleep
-import time
 import random
 
 class MapController:
@@ -13,11 +12,6 @@ class MapController:
     async def start(self):
         self.map = await MapService.getById(1)
         await self.setTrafficLight()
-        while True:
-            await self.changeTrafficLight()
-            time.sleep(5)
-        
-
 
     async def setTrafficLight(self):
         for lineIndex in range(len(self.map.squares)):
@@ -46,15 +40,15 @@ class MapController:
                     for avatar in croisement:
                         await AvatarService.create(avatar)
 
+
     async def changeTrafficLight(self):
         print("change light")
-        lights = await AvatarService.getByTypeId(4)
+        lights = await AvatarService.get_by_type_id(4)
         for light in lights:
             if light.image == "../assets/images/traffic_light_red.png":
                 light.image = "../assets/images/traffic_light_green.png"
             else:
                 light.image = "../assets/images/traffic_light_red.png"
-        await AvatarService.moveAvatars(lights)
 
-
-
+        lights.insert(0, await AvatarService.get_by_id(1))
+        await AvatarService.move_avatars(lights)

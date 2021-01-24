@@ -9,6 +9,8 @@ class Avatar:
         self._x = x
         self._y = y
 
+        self.direction = "down"
+
 
     @property
     def id(self):

@@ -27,3 +27,8 @@ class Square:
     @staticmethod
     def parse(json_object):
         return Square(json_object['value'], json_object['image'])
+
+
+    @property
+    def type(self):
+        return self._image.split("/")[-1].split(".")[0]
