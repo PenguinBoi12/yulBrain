@@ -50,5 +50,4 @@ class MapController:
             else:
                 light.image = "../assets/images/traffic_light_red.png"
 
-        lights.insert(0, await AvatarService.get_by_id(1))
-        await AvatarService.move_avatars(lights)
+        return lights

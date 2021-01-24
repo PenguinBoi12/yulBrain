@@ -8,7 +8,7 @@ course = [(9,9), (3,21), (16,14), (13,18)]
 
 corona = CoronaController(course)
 map = MapController()
-cars = CarsController(5)
+cars = CarsController(1)
 
 async def start():
     await map.start()
@@ -18,15 +18,21 @@ async def start():
     start = time.time()
 
     while True:
-        # print(await corona.do_objectives())
-        # await map.changeTrafficLight()
-        await cars.roam()
+        avatars = await AvatarService.get_all()
+
+        # await corona.do_objectives()
+
+        avatars += await cars.roam()
         await sleep(0.5)
 
-        # if time.time() - start > 1 and not cars.limit_exceeded():
-        #     start = time.time()
-        #     await cars.new()
+        if time.time() - start > 30:
+            avatars += await map.changeTrafficLight()
 
+        if time.time() - start > 1 and not cars.limit_exceeded():
+            start = time.time()
+            await cars.new()
+
+        await AvatarService.move_avatars(avatars)
 
 # Démarre la boucle principale
 try:
