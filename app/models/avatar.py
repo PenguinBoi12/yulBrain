@@ -1,7 +1,7 @@
 class Avatar:
     def __init__(self, id, name, type, image, waiting, main, x, y):
         self._id = id
-        self._name =  name
+        self._name = name
         self._type = type
         self._image = image
         self._waiting = waiting
@@ -9,14 +9,10 @@ class Avatar:
         self._x = x
         self._y = y
 
+
     @property
     def id(self):
         return self._id
-
-
-    @id.setter
-    def id(self, new_id):
-        self._id = new_id
 
 
     @property
