@@ -85,6 +85,9 @@ class Avatar:
         self._y = new_y
 
 
+    def to_json(self):
+        return { 'id':self.id, 'name':self.name, 'type':self.type, 'image':self.image, 'waiting':self.waiting, 'main':self.main, 'x':self.x, 'y':self.y }
+
     @staticmethod
     def parse(json_object):
         return Avatar(json_object['id'], json_object['name'], json_object['type'], json_object['image'],  json_object['waiting'], json_object['main'], json_object['x'], json_object['y'])
