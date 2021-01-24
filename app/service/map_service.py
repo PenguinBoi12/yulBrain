@@ -5,7 +5,7 @@ import json
 
 class MapService:
     @staticmethod
-    def getById(id):
+    async def getById(id):
         response = get(url=Config.url+"/map/"+str(id))
         data = response.json()
 

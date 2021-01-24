@@ -5,7 +5,7 @@ import json
 
 class AvatarService:
     @staticmethod
-    def getAll():
+    async def getAll():
         avatars = []
 
         response = get(url=Config.url+"/avatar/")
@@ -18,7 +18,7 @@ class AvatarService:
 
 
     @staticmethod
-    def getById(id):
+    async def getById(id):
         response = get(url=Config.url+"/avatar/"+str(id))
         data = response.json()
 
@@ -26,7 +26,7 @@ class AvatarService:
 
 
     @staticmethod
-    def getByTypeId(type_id):
+    async def getByTypeId(type_id):
         avatars = []
 
         response = get(url=Config.url+"/avatar/type/"+str(type_id))
@@ -39,7 +39,7 @@ class AvatarService:
 
 
     @staticmethod
-    def moveAvatars(avatars):
+    async def moveAvatars(avatars):
         json_avatars = []
 
         for avatar in avatars:
